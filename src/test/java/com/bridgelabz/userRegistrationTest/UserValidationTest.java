@@ -64,4 +64,47 @@ public class UserValidationTest
     {
     	Assert.assertFalse(user.firstNameCheck("PRANEETHA"));
     }
+    
+    @Test
+    public void whenGivenLastNameShouldReturnTrue()
+    {
+    	Assert.assertTrue(user.firstNameCheck("Chodey"));
+    }
+    
+    
+    @Test
+    public void whenGivenLastNameShouldReturnFalse()
+    {
+    	Assert.assertFalse(user.firstNameCheck("chodey"));
+    }
+    
+    @Test
+    public void whenGivenLastNameShouldReturnFalse1()
+    {
+    	Assert.assertFalse(user.firstNameCheck("Ch"));
+    }
+    
+    @Test
+    public void whenGivenLastNameShouldReturnFalse2()
+    {
+    	Assert.assertFalse(user.firstNameCheck("Chodey555"));
+    }
+    
+    @Test
+    public void whenGivenLastNameShouldReturnFalse4()
+    {
+    	Assert.assertFalse(user.firstNameCheck("Chodey@"));
+    }
+    
+    @Test
+    public void whenGivenLastNameShouldReturnFalse5()
+    {
+    	Assert.assertFalse(user.firstNameCheck("CHODEY"));
+    }
+    
+    
+    
+    
+    
+    
 }
