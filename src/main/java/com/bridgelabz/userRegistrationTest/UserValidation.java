@@ -25,9 +25,11 @@ public class UserValidation {
 			if(email.length()==0) 			
 				throw new UserValidationException(UserValidationException.exceptionType.ENTERED_EMPTY,"enter proper email");
 			//String valid = new String("^[\\w-\\+]+(\\.[\\w]+)*@[\\w-]{2,})?(\\.[a-z]{2,})?$");
-		String valid = new String("^[a-zA-Z0-9\\-_]+([\\.+_-][a-zA-Z0-9]+)?@([a-zA-Z0-9]+)\\.([a-z0-9]{2,})(\\.[a-z]{2})?$");
+		String valid = new String("^[a-zA-Z0-9\\-_]+([\\.+_-][a-zA-Z0-9]+)?@([a-zA-Z0-9]+)\\.([a-z0-9]{2,})(\\.[a-z]{2,})?$");
 		Pattern pattern = Pattern.compile(valid);
 		boolean result= pattern.matcher(email).matches();
+		if(!result)
+			throw new UserValidationException(UserValidationException.exceptionType.ENTERED_INVALID,"enter proper email");
 		return result;
 			}
 		catch(NullPointerException e)
