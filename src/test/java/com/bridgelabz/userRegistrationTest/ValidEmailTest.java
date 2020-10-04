@@ -2,12 +2,14 @@ package com.bridgelabz.userRegistrationTest;
 
 import java.util.Arrays;
 import java.util.Collection;
-
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
+import static org.junit.Assert.assertTrue;
+import org.junit.Assert;
+import org.junit.Before;
+import org.junit.Test;
 
-import junit.framework.Assert;
 
 @RunWith(Parameterized.class)
 public class ValidEmailTest {
@@ -39,7 +41,7 @@ public void testEmail() throws UserValidationException
 {
 	try {
 	UserValidation validator = new UserValidation();
-	boolean result = validator.emailCheck(this.email);
+	boolean result = validator.emailCheck.check(this.email);
 		Assert.assertEquals(this.expectedResult,result);
         } catch(UserValidationException e)
 	{
@@ -53,7 +55,7 @@ public void testEmail_null() throws UserValidationException
 {
 	try {
 	UserValidation validator = new UserValidation();
-	boolean result = validator.emailCheck(null);
+	boolean result = validator.emailCheck.check(null);
 	}catch(UserValidationException e)
 	{
 		Assert.assertEquals(UserValidationException.exceptionType.ENTERED_NULL, e.exception);
@@ -69,7 +71,7 @@ public void testEmail_empty() throws UserValidationException
 {
 	try {
 	UserValidation validator = new UserValidation();
-	boolean result = validator.emailCheck("");
+	boolean result = validator.emailCheck.check("");
 	}catch(UserValidationException e)
 	{
 		Assert.assertEquals(UserValidationException.exceptionType.ENTERED_EMPTY, e.exception);
